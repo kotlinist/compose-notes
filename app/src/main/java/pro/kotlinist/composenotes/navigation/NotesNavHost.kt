@@ -5,10 +5,7 @@ import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import pro.kotlinist.composenotes.screens.Add
-import pro.kotlinist.composenotes.screens.Main
-import pro.kotlinist.composenotes.screens.Note
-import pro.kotlinist.composenotes.screens.Start
+import pro.kotlinist.composenotes.screens.*
 
 sealed class NavRoute(val route: String) {
     object Start: NavRoute("start_screen")
@@ -22,10 +19,10 @@ fun NotesNavHost() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = NavRoute.Start.route) {
-        composable(NavRoute.Start.route) { Start(navController) }
-        composable(NavRoute.Main.route) { Main(navController) }
-        composable(NavRoute.Add.route) { Add(navController) }
-        composable(NavRoute.Note.route) { Note(navController) }
+        composable(NavRoute.Start.route) { StartScreen(navController) }
+        composable(NavRoute.Main.route) { MainScreen(navController) }
+        composable(NavRoute.Add.route) { AddScreen(navController) }
+        composable(NavRoute.Note.route) { NoteScreen(navController) }
     }
 
 }
